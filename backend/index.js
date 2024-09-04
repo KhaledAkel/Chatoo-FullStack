@@ -14,5 +14,11 @@ mongoose.connect(process.env.MONGO_URL, (err) => {
 
 // Create Express App
 const app = express();
+
+// Middlewares
 app.use(express.json());
 
+// APP Listen
+app.listen(5000, () => {
+  console.log('Server is running on port 5000');
+});
