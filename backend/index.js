@@ -8,9 +8,13 @@ import cors from 'cors';
 dotenv.config();
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URL, (err) => {
-  if (err) throw err;
-});
+mongoose.connect(process.env.MONGO_URL)
+  .then(() => {
+    console.log('MongoDB Connected');
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 // Create Express App
 const app = express();
